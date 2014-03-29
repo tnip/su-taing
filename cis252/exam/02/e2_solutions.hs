@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- Exam 2 Practice Questions: Version 2
+-- Exam 2 Practice Questions: Version 2.1
 --
 -- NB: These questions are (for the most part) at least similar to (or at times)
 --        even more difficult than those on the actual exam. As such, if you
@@ -102,7 +102,7 @@ increaseCredits'' cs = [(Cl d n (c+1)) | (Cl d n c) <- cs]
     such that given two classes, we can determine if they are identical.
 
     NB: Our definition of identical is that the department and the course number
-          are the same.
+          are the same between two classes.
 -}
 
 equivClasses :: Course -> Course -> Bool
@@ -143,7 +143,7 @@ creditCount'' cs = sum (map (\(Cl _ _ c) -> c) cs)
 {-
     Write a function
 
-      classifyStudent :: Schedule -> Student
+      classifyStudent :: Schedule -> Student -> Bool
 
     such that given a schedule of classes (cs) and a student type, we determine
       whether a student has a valid classification (i.e. fulltime or parttime)
