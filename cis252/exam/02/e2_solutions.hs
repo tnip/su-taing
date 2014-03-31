@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- Exam 2 Practice Questions: Version 2.1
+-- Exam 2 Practice Questions: Version 2.2
 --
 -- NB: These questions are (for the most part) at least similar to (or at times)
 --        even more difficult than those on the actual exam. As such, if you
@@ -109,6 +109,10 @@ equivClasses :: Course -> Course -> Bool
 equivClasses (Cl d1 n1 _) (Cl d2 n2 _) = (d1 == d2) && (n1 == n2)
 
 {-
+    NOTE: This problem is out of scope for Exam 2 - but you're welcome to try it!
+          Think about the underlying logic behind a list comprehension and it
+            should hopefully make sense.
+      
     Write a function
 
       inClassTogether :: Schedule -> Schedule -> Bool
@@ -116,7 +120,7 @@ equivClasses (Cl d1 n1 _) (Cl d2 n2 _) = (d1 == d2) && (n1 == n2)
     such that given two schedules, we determine if they share at least one class
 
     Hint: The function (or) may be of use.
- -}
+-}
 
 inClassTogether :: Schedule -> Schedule -> Bool
 inClassTogether a b = or [ equivClasses c1 c2 | c1 <- a, c2 <- b ]

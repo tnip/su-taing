@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- Exam 2 Practice Questions: Version 2.1
+-- Exam 2 Practice Questions: Version 2.2
 --
 -- NB: These questions are (for the most part) at least similar to (or at times)
 --        even more difficult than those on the actual exam. As such, if you
@@ -92,6 +92,10 @@ increaseCredits :: Schedule -> Schedule
 equivClasses :: Course -> Course -> Bool
 
 {-
+    NOTE: This problem is out of scope for Exam 2 - but you're welcome to try it!
+          Think about the underlying logic behind a list comprehension and it
+            should hopefully make sense.
+      
     Write a function
 
       inClassTogether :: Schedule -> Schedule -> Bool
