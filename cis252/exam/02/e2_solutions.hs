@@ -126,9 +126,9 @@ inClassTogether a b = or [ equivClasses c1 c2 | c1 <- a, c2 <- b ]
 
       creditCount :: Schedule -> Int
 
-    such that given a schedule of classes (cs), we get back a list of the course
-    numbers for a particular schedule.
- -}
+    such that given a schedule of classes (cs), we get back the total credit count
+    for the given schedule.
+-}
 
 creditCount :: Schedule -> Int
 creditCount [] = 0

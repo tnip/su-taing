@@ -108,9 +108,9 @@ inClassTogether :: Schedule -> Schedule -> Bool
 
       creditCount :: Schedule -> Int
 
-    such that given a schedule of classes (cs), we get back a list of the course
-    numbers for a particular schedule.
- -}
+    such that given a schedule of classes (cs), we get back the total credit count
+    for the given schedule.
+-}
 
 creditCount :: Schedule -> Int
 
