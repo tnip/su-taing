@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- Exam 2 Practice Questions: Version 2.2
+-- Exam 2 (Extra) Practice Questions: Version 1
 --
 -- NB: These questions are (for the most part) at least similar to (or at times)
 --        even more difficult than those on the actual exam. As such, if you
