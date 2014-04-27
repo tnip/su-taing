@@ -204,12 +204,39 @@ anotherTM = [
  --------------------------------------------------------------------------}
 
 {--------------------------------------------------------------------------
- -- 
- -- 
+ -- Types and Things!
+ --
+ -- Suppose the following definitions are made:
+ --------------------------------------------------------------------------}
 
+data Glee = Wonder Char Int (Bool, Int)
+          | Enjoy Int Glee
+          | Joy (Bool, Int, Float)
 
+joy :: Bool -> (Int -> Bool)
+joy True = (\x -> odd x)
+joy False = (\x -> mod (x*2) 3 == 0)
 
+miracle :: Glee -> Bool
+miracle (Wonder x y (z, a)) = y == 9
+miracle (Enjoy x y)         = even x
+miracle (Joy (x, y, z))     = mod 17 y == 5
 
+fun :: Int -> Bool -> Glee
+fun 5 b = Wonder 's' 10 (b, 0)
+fun n b = Wonder 'c' n (b, n * 2)
 
+{--------------------------------------------------------------------------
+ -- For each of the following expressions, give its type.
+ -- (For example, the type of [False] is [Bool].)
+ --------------------------------------------------------------------------}
+ 
+ta = Wonder 'c'
 
+tb = filter (flip joy 5)
 
+tc = joy (miracle (Joy (True, 5, 32))) 6
+
+td = map (fun 5)
+
+te = (map, Joy, False)
