@@ -152,9 +152,20 @@ import Turing
  -- Consider the Turing machine as given below (written in the Haskell
  -- format from class and the homeworks). 
  --
- -- Assume that the initial tape contains the string "aaaa#aaa" and the
- -- tape head starts on the leftmost symbol of the string. What is the
- -- string that appears on the final tape?
+ -- (a) Assume that the initial tape contains the string "aaaa#aaa" and the
+ --     tape head starts on the leftmost symbol of the string. What is the
+ --     string that appears on the final tape?
+ --
+ --     0
+ --
+ -- (b) Assume that the initial tape contains the string "aaa#aaa" and the
+ --     tape head starts on the leftmost symbol of the string. What is the
+ --     string that appears on the final tape?
+ --
+ --     1
+ --
+ -- (What this Turing machine does is it determines which of the left
+ --     or right strings have a greater length.)
  --------------------------------------------------------------------------}
 
 anotherTM :: Prog
@@ -194,9 +205,6 @@ leftRightLong = [
                     (("clearL", 'a'), (' ', Lft, "clearL")),
                     (("clearL", ' '), ('0', Rght, "eatL"))
                 ]
-
--- The answer here is 0 - we're actually counting to see which of the two
--- strings is longer in this case.
 
 {--------------------------------------------------------------------------
  -- Question 2

@@ -141,9 +141,13 @@ import Turing
  -- Consider the Turing machine as given below (written in the Haskell
  -- format from class and the homeworks). 
  --
- -- Assume that the initial tape contains the string "aaaa#aaa" and the
- -- tape head starts on the leftmost symbol of the string. What is the
- -- string that appears on the final tape?
+ -- (a) Assume that the initial tape contains the string "aaaa#aaa" and the
+ --     tape head starts on the leftmost symbol of the string. What is the
+ --     string that appears on the final tape?
+ --
+ -- (b) Assume that the initial tape contains the string "aaa#aaa" and the
+ --     tape head starts on the leftmost symbol of the string. What is the
+ --     string that appears on the final tape?
  --------------------------------------------------------------------------}
 
 anotherTM :: Prog
@@ -198,4 +202,14 @@ anotherTM = [
  --
  -- (You can either write a program or draw a state transition diagram.)
  --------------------------------------------------------------------------}
+
+{--------------------------------------------------------------------------
+ -- 
+ -- 
+
+
+
+
+
+
 
