@@ -49,7 +49,6 @@
  --
  --     And this little piggy cried wee wee wee all the way home
  --
- --         grep "^And" notes.txt
  --
  -- (2) Give a one-line Unix command that would generate the following
  --     output: 
@@ -60,8 +59,6 @@
  --     This little piggy stayed home
  --     This little piggy went to the market
  --
- --         cat stuff.txt | sort
- --           OR: sort < stuff.txt
  --
  -- (3) Give a one line Unix command that would generate the following
  --     output: 
@@ -72,13 +69,10 @@
  --     tres
  --     uno
  --
- --         cat vertigo.txt | sort | uniq
- --             OR: sort < vertigo.txt | uniq
  --
  -- (4) Give a one line Unix command that would generate the line count
  --     of the file "vertigo.txt" and store it in "vertigowc.txt".
  --
- --         wc -l vertigo.txt > vertigowc.txt
  --
  -- (5) Recall that the dictionary lives in /usr/dict/words. 
  --
@@ -86,20 +80,17 @@
  --         five characters long. For example, "llama" would satisfy
  --         those requirements.
  --
- --             grep "^ll...$" /usr/dict/words
  --
  --     (b) Find all the dictionary words that do not contain "aa".
  --         For example, "assbaa" would not satisfy that requirement
  --         but "awesome" would.
  --
- --             grep -v "aa" /usr/dict/words
  --
  --     (c) Find all the dictionary words that start with an a,
  --         followed by any three characters, then a d, and end
  --         with an a. For example, "amygdala" and "anhedonia" 
  --         would satisfy that requirement.
  --
- --             grep "^a...d.*a$" /usr/dict/words
  -------------------------------------------------------------------------}
  
 {--------------------------------------------------------------------------
@@ -128,13 +119,11 @@
  --     and save the results of that as "cis252-grades" in Jose's misc
  --     directory.
  --
- --         ls -l ~/cis252/grades > ~/misc/cis252-grades
  --
  -- (2) Get a "long" listing for the folder "hw" in the cis400 directory,
  --     then obtain the word count for it and save it as "cis400-hw" in 
  --     the cis400 directory.
  --
- --         ls -l ~/cis400/hw | wc > cis400/cis400-hw 
  -------------------------------------------------------------------------}
 
 {--------------------------------------------------------------------------
@@ -176,28 +165,6 @@ anotherTM = [
                 ]
 
 
--- For a more verbose version...
-leftRightLong :: Prog
-leftRightLong = [
-                    (("eatL", 'a'), (' ', Rght, "goR")),
-                    (("eatL", '#'), (' ', Rght, "clearR")),
-                    (("goR", 'a'), ('a', Rght, "goR")),
-                    (("goR", '#'), ('#', Rght, "goR")),
-                    (("goR", ' '), (' ', Lft, "eatR")),
-                    (("eatR", 'a'), (' ', Lft, "goL")),
-                    (("eatR", '#'), (' ', Lft, "clearL")),
-                    (("goL", 'a'), ('a', Lft, "goL")),
-                    (("goL", '#'), ('#', Lft, "goL")),
-                    (("goL", ' '), (' ', Rght, "eatL")),
-                    (("clearR", 'a'), (' ', Rght, "clearR")),
-                    (("clearR", ' '), ('1', Lft, "eatL")),
-                    (("clearL", 'a'), (' ', Lft, "clearL")),
-                    (("clearL", ' '), ('0', Rght, "eatL"))
-                ]
-
--- The answer here is 0 - we're actually counting to see which of the two
--- strings is longer in this case.
-
 {--------------------------------------------------------------------------
  -- Question 2
  --------------------------------------------------------------------------
@@ -216,22 +183,6 @@ leftRightLong = [
  -- (You can either write a program or draw a state transition diagram.)
  --------------------------------------------------------------------------}
 
-countM :: Prog
-countM = [
-            (("findM", 'm'), (' ', Rght, "markM")),
-            (("findM", 'n'), (' ', Rght, "findM")),
-            (("findM", 'p'), (' ', Rght, "findM")),
-            (("markM", 'm'), ('m', Rght, "markM")),
-            (("markM", 'n'), ('n', Rght, "markM")),
-            (("markM", 'p'), ('p', Rght, "markM")),
-            (("markM", '1'), ('1', Rght, "markM")),
-            (("markM", ' '), ('1', Lft, "toFront")),
-            (("toFront", 'm'), ('m', Lft, "toFront")),
-            (("toFront", 'n'), ('n', Lft, "toFront")),
-            (("toFront", 'p'), ('p', Lft, "toFront")),
-            (("toFront", '1'), ('1', Lft, "toFront")),
-            (("toFront", ' '), (' ', Rght, "findM"))
-        ]
 
 {--------------------------------------------------------------------------
  -- Question 3
@@ -247,22 +198,4 @@ countM = [
  --
  -- (You can either write a program or draw a state transition diagram.)
  --------------------------------------------------------------------------}
-
-abBc :: Prog
-abBc = [
-            (("findA", 'a'), ('a', Rght, "findB")),
-            (("findA", 'b'), ('b', Rght, "findA")),
-            (("findA", 'c'), ('c', Rght, "findA")),
-            (("findB", 'a'), ('a', Rght, "findA")),
-            (("findB", 'b'), ('c', Rght, "findA")),
-            (("findB", 'c'), ('c', Rght, "findA"))
-       ]
-
-
-
-
-
-
-
-
 
