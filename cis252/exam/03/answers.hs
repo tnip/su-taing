@@ -311,6 +311,9 @@ te = (map, Joy, False)
 
 {--------------------------------------------------------------------------
  -- Algebraic Data Types: Trees
+ --
+ -- Note that a MTree is a Tree with multiple children whereas a
+ --             BTree is a Tree with only two children.
  --------------------------------------------------------------------------}
 
 data MTree a = MBranch a [MTree a]
@@ -318,8 +321,13 @@ data MTree a = MBranch a [MTree a]
 data BTree a = BBranch a (BTree a) (BTree a)
            | Empty
 
-mtree1 :: MTree Int
+mtree1, mtree2 :: MTree Int
 mtree1 = MBranch 7 [MBranch 9 [ MBranch 1 [] ] ]
+mtree2 = MBranch 3 [MBranch 23 [], MBranch 1 [] ]
+
+btree1, btree2 :: BTree Int
+btree1 = BBranch 7 (BBranch 9 Empty Empty) (BBranch 1 Empty Empty)
+btree2 = BBranch 3 (BBranch 23 Empty Empty) (BBranch 1 Empty Empty)
 
 {--------------------------------------------------------------------------
  -- Write a Haskell function
@@ -330,7 +338,15 @@ mtree1 = MBranch 7 [MBranch 9 [ MBranch 1 [] ] ]
 productLabels :: MTree Int -> Int
 productLabels (MBranch x ts) = x * product [ productLabels t | t <- ts ]
 
-
+{--------------------------------------------------------------------------
+ -- Write a Haskell function
+ --     productLabelsB :: BTree Int -> Int
+ -- such that (productLabelsB tree) returns the product of all the labels
+ -- in tree. For example, (productLabelsB btree1) returns 63.
+ --------------------------------------------------------------------------}
+productLabelsB :: BTree Int -> Int
+productLabelsB Empty = 1
+productLabelsB (BBranch x tl tr) = x * (productLabelsB tl) * (productLabelsB tr)
 
 
 
