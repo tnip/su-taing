@@ -309,6 +309,32 @@ td = map (fun 5)
 te = (map, Joy, False)
 -- ((a -> b) -> [a] -> [b], (Bool, Int, Float) -> Glee, Bool)
 
+{--------------------------------------------------------------------------
+ -- Algebraic Data Types: Trees
+ --------------------------------------------------------------------------}
+
+data MTree a = MBranch a [MTree a]
+
+data BTree a = BBranch a (BTree a) (BTree a)
+           | Empty
+
+mtree1 :: MTree Int
+mtree1 = MBranch 7 [MBranch 9 [ MBranch 1 [] ] ]
+
+{--------------------------------------------------------------------------
+ -- Write a Haskell function
+ --     productLabels :: MTree Int -> Int
+ -- such that (productLabels tree) returns the product of all the labels
+ -- in tree. For example, (productLabels mtree1) returns 63.
+ --------------------------------------------------------------------------}
+productLabels :: MTree Int -> Int
+productLabels (MBranch x ts) = x * product [ productLabels t | t <- ts ]
+
+
+
+
+
+
 
 
 

@@ -240,3 +240,48 @@ tc = joy (miracle (Joy (True, 5, 32))) 6
 td = map (fun 5)
 
 te = (map, Joy, False)
+
+{--------------------------------------------------------------------------
+ -- For each of the following expressions, give its type.
+ -- (For example, the type of [False] is [Bool].)
+ --------------------------------------------------------------------------}
+
+{--------------------------------------------------------------------------
+ -- Algebraic Data Types: Trees
+ --------------------------------------------------------------------------}
+
+data MTree a = MBranch a [MTree a]
+
+data BTree a = BBranch a (BTree a) (BTree a)
+           | Empty
+
+mtree1 :: MTree Int
+mtree1 = MBranch 7 [MBranch 9 [ MBranch 1 [] ] ]
+
+{--------------------------------------------------------------------------
+ -- Write a Haskell function
+ --     productLabels :: MTree Int -> Int
+ -- such that (productLabels tree) returns the product of all the labels
+ -- in tree. For example, (productLabels mtree1) returns 63.
+ --------------------------------------------------------------------------}
+productLabels :: MTree Int -> Int
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
