@@ -348,11 +348,75 @@ productLabelsB :: BTree Int -> Int
 productLabelsB Empty = 1
 productLabelsB (BBranch x tl tr) = x * (productLabelsB tl) * (productLabelsB tr)
 
+{--------------------------------------------------------------------------
+ -- Higher Order Functions!
+ --------------------------------------------------------------------------
+ -- This time around, there are built-in checks! Simply run "hfCheck" and
+ --     if everything is right, you'll 
+ -- What you want to do is replace every instance of fixMe with an
+ --     appropriate answer.
+ --
+ -- For example:
+ --
+ -- hw0 = fun0 [2,4] == [2]
+ --     where fun0 = fixMe
+ --
+ -- should end up having:
+ --     fun0 = head
+ --------------------------------------------------------------------------}
 
+fixMe = error "fix me!"
 
+hf1 = fun1 xs == [1,3]
+    where xs = [1,3..10]
+          fun1 = filter (\x -> x < 4)
 
+hf2 = (fun1 xs, fun2 xs) == ([1,31,7], [34,8,99,48])
+    where xs   = [1,31,7,34,8,99,48] 
+          fun1 = takeWhile odd
+          fun2 = dropWhile odd
 
+-- Hint: You will have to use both map and filter. In theory. ;)
+-- Hint: Notice that these are all divisible by three...
+hf3 = (.) fun1 fun2 xs == []
+    where xs   = [1..10]
+          fun1 = (filter odd)
+          fun2 = (map (\x -> 2*x))
 
+hf4 = fun1 (fun2 xs) ys == [(2,'a'), (4,'b')]
+    where xs   = [1..4]
+          ys   = ['a','b','c']
+          fun1 = zip
+          fun2 = filter even
+
+hf5 = fun1 xs ys == [3,5,7,9]
+    where xs   = [1..10]
+          ys   = [2..5]
+          fun1 = zipWith (+)
+
+hfCheck = and [hf1, hf2, hf3, hf4, hf5]
+-- hfCheck = and [hf1]
+
+{--------------------------------------------------------------------------
+ -- Miscellaneous
+ --------------------------------------------------------------------------}
+
+{--------------------------------------------------------------------------
+ -- Problem 1
+ --
+ -- Write a Haskell function swap that takes a function
+ --     p: a -> b -> (c,d)
+ -- and returns a tuple that reverses the order of the returned tuple.
+ --
+ -- For example, if p returns (1,2), swap would ultimately return (2,1).
+ --
+ -- (Hint: You can do this without using flip...)
+ --------------------------------------------------------------------------}
+
+swap :: (a -> b -> (c,d)) -> a -> b -> (d,c)
+swap p x y = (d,c)
+    where
+        (c,d) = p x y
 
 
 
