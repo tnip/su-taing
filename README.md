@@ -2,7 +2,7 @@
 
 These are things I wrote while TAing. Just some things I made either for student consumption (like practice questions) or for my personal use (like scripts to help me grade and the like).
 
-## UIUC
+## University of Illinois at Urbana-Champaign
 
 ###cs492
 
