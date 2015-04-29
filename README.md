@@ -1,7 +1,14 @@
 #ta-materials
 
-These are things I wrote while TAing. Just some things I made either for student consumption (like practice questions) or for my personal use (like scripts to help me grade and the like). 
+These are things I wrote while TAing. Just some things I made either for student consumption (like practice questions) or for my personal use (like scripts to help me grade and the like).
 
+## UIUC
+
+###cs492
+
+I was a TA for CS 492 and CS 493/494 (Senior Projects) and among other things, worked to automate a lot of manual tasks which would've been incredibly painful.
+
+## Syracuse University
 
 ###cis252
 
