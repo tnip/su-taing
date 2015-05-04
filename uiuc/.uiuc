@@ -1,0 +1,5 @@
+alias chrome="open -a Google\ Chrome"
+
+function dir() {
+chrome 'https://illinois.edu/ds/search?skinId=0&sub=&go=go&search='"$1"
+}
